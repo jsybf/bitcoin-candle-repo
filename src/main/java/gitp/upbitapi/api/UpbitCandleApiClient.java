@@ -12,6 +12,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -69,7 +70,8 @@ public class UpbitCandleApiClient {
             responseMonoList.add(candleWebClient);
         }
 
-        return Flux.merge(responseMonoList);
+        return Flux.concat(responseMonoList)
+                .delayElements(Duration.ofMillis(100));
     }
 }
 
