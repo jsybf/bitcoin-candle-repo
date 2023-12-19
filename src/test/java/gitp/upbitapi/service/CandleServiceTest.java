@@ -1,4 +1,4 @@
-package gitp.upbitapi;
+package gitp.upbitapi.service;
 
 import gitp.upbitapi.api.timeutil.PeriodSplitter;
 import gitp.upbitapi.api.timeutil.SplitPeriodIterator;
